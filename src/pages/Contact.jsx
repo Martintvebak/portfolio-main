@@ -1,0 +1,39 @@
+import Fade from "../components/Fade.jsx";
+
+export default function Contact() {
+  return (
+    <section className="contact-page-container">
+      {/* decorative rotating image (keeps it simple to debug) */}
+      <div className="rotator-wrap" aria-hidden="true">
+        <img className="rotator-img" src="./img/contact-background.webp" alt="" />
+      </div>
+
+    <Fade>
+      <div className="contact-page-content">
+        <h1>Let's talk</h1>
+        <h2>tvebakmartin@gmail.com</h2>
+        <h2>+45 60 69 25 05</h2>
+
+        <img src="./img/big-me.webp" alt="Image of myself" />
+
+        <div className="download-cv">
+          <a href="./img/MartinAndersenCV.pdf" target="_blank" rel="noopener noreferrer">
+            SHOW CV
+          </a>
+        </div>
+        </div>
+        </Fade>
+
+      <section className="social-icons-a">
+       <a
+                    href="https://www.linkedin.com/in/tvebak"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                >
+                    <i className="fa-brands fa-linkedin" style={{ color: "#4b694e" }}></i>
+                </a>
+      </section>
+    </section>
+  );
+}

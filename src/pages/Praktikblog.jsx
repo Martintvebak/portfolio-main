@@ -1,0 +1,858 @@
+import { useState } from "react";
+
+export default function Praktikblog() {
+  const [selectedWeek, setSelectedWeek] = useState(1);
+  const [lightboxImage, setLightboxImage] = useState(null);
+  
+  // Organize all your daily entries by week
+  const weekData = {
+    1: {
+      title: "Uge 1",
+      dateRange: "6. januar - 9. januar 2026",
+      entries: [
+        {
+          day: 1,
+          date: "6. januar 2026",
+          image: "",
+          spontanlog: [
+            "Hej, ",
+            "Så er den hårdeste dag overstået. En nervepirrende dag fyldt med nervøsitet og sommerfugle i maven. Dog har det alligevel været en god dag og jeg er SÅ stolt af mig selv.",
+            "Jeg ankommer til praktikstedet kl. 9.30. Jeg er meget nervøs og kulden udenfor hjælper ikke ligefrem, men det sker. Jeg træder ind i det lille rum og bliver mødt af mennesker jeg aldrig har set. Men jeg får heldigvis øjenkontakt med Noa, som er min kontaktperson i Rotterzwam. Det er en lille virksomhed, men en hyggelig en. Jeg er glad for, at jeg har fået muligheden for at være med i et cirkulært firma som Rotterzwam. ",
+            "Til at starte med får jeg en lille præsentation af hele holdet. Sjovt nok, så er de alle samlet i dag. Jeg bliver præsenteret for alle, men jeg må indrømme at jeg er forvirret over alle de navne, men det kommer nok. Herefter snakker Noa og jeg lidt sammen og her får jeg en rundvisning af hele Rotterzwam og alle de forskellige svampe og produkter som de har. Det var meget interessant og kan godt mærke, at jeg lige selv skal have lavet min research på svampe. Derefter sætter vi os i bygningen ved siden af, da Noa og jeg primært skal arbejde sammen, men selvfølgelig også med de andre. Men hun står for det grafiske. Hun giver mig en introduktion igen og her får vi snakket om mit skema og hvad jeg eventuelt kunne tænke mig at lave, men selvfølgelig så jeg kan tilkoble mig det til mine læringsmål. Senere på dagen går vi tilbage. Jeg får lov til at sidde lidt for mig selv, da resten af teamet skal til et møde, hvilket ikke var interessant for mig. Imens laver jeg en opgave, hvor jeg skal sidde og kigge på nogle emails som Rotterzwam sender ud til deres growkit, hvor man selv kan dyrke svampe. De vil nemlig gerne redesigne det. ",
+            "Teamet kommer tilbage senere, hvorefter Noa og jeg sparrer med hinanden omkring idéer og hvad jeg kunne hjælpe Rotterzwam med i de kommende uger. Vi bliver enige om, at det ville være en god idé, at jeg står hovedsageligt for growkits og deres redesign, så det passer til deres nye visuelle identitet. ",
+            "Det var stort set dagen. Jeg har brugt dagen på at være spændt og nervøs, men alligevel så gik det. Det gik bedre end jeg forventede og er faktisk spændt på i morgen. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 2,
+          date: "7. januar 2026",
+          image: "/img/dag-2.png",
+          spontanlog: [
+           "Hej igen, ", 
+           "Selvom at det kun er min anden dag I Rotterzwam, så har hele Holland desværre været så uheldig, at det har stort set været lukket ned. ", 
+           "Offentlig transport har ikke fungeret optimalt, hvilket har gjort at hele Rotterzwams team har arbejdet hjemmefra.", 
+           "Men trods, at vi har arbejdet hjemme og at det ikke er optimalt for en praktikant som mig, der lige er startet, så har det alligevel gået godt. ", 
+           "Jeg har fået flere opgaver af Noa, som jeg skal have lavet og opfyldt inden ugen er omme. I dag har jeg brugt dagen på, at researche. Min første opgave var at finde inspiration til Growkit-supportsiden. Jeg skulle kigge på forskellige hjemmesider, manualer, instruktioner, animationer og andre visuelle elementer, som kunne give idéer til layout, funktionalitet og visuel stil. Hertil lavede jeg en oversigt I Figma over de forskellige kilder og forsøgte at formulere, hvad jeg præcist kunne lide ved dem. Her fandt jeg frem til, at jeg virkelig godt kan lide “playful minimalist illustrations”, da det allerede passer til den nye eksisterende visuelle identitet, som Noa arbejder på. ", 
+           "I morgen skal jeg vise hende, hvad jeg har fået researchet og så kan vi gå videre ud fra det. Glæder mig til at høre, hvad hun har at sige og hvad jeg eventuelt kan forbedre :) "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 3,
+          date: "8. januar 2026",
+          image: "/img/dag-3.png",
+          spontanlog: [
+           "Så er det blevet dag 3. ", 
+           "I dag bliver det bare en kort spontanlog. Jeg har brugt ret meget energi foran computeren, hvor min primære opgave har været at lave research på Rotterzwam og deres grow kit emails. Selvom jeg allerede havde undersøgt virksomheden inden praktikstart, har meget af det alligevel overrasket mig. Især Rotterzwams mission om cirkulær økonomi og hele deres historie. Deres mission går meget ud på den cirkulære økonomi, men også samarbejdet med andre og hele deres netværk. ",
+           "Efter I dag er jeg faktisk blevet ret taknemmelig for, at jeg har fået muligheden for at være I praktik I Rotterzwam. En virksomhed, der tror på en fremtid med cirkulær økonomi, mens de samarbejder med andre I deres omkreds og netværk. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 4,
+          date: "9. januar 2026",
+          image: "/img/dag-4.png",
+          spontanlog: [
+            "Hej igen, ",
+            "Så er den første uge overstået! Det har virkelig været en spændende uge, men også en, der har drænet min energi. Men ikke fordi det er dårligt, men bare fordi jeg har skulle vænne mig til så meget nyt.",
+            "I dag har jeg brugt dagen på, at køre rundt med Noa. De leverer varer ud til forskellige firmaer og butikker. I dag var vi ude og levere nogle af vores “Grow Kits” til “Niewe Instituut”, som egentlig er et slags museum. Lige nu har de nemlig udstillinger, der har meget af gøre med svampe og fungi. Så jeg fik også lige en rundvisning og fik lov til at gå rundt der, meget spændende. På den måde kunne vi også få lidt inspiration til projekter og opgaver.",
+            "Derefter tog vi tilbage til “Farmen”, som de kalder det. Her gik jeg I gang med, at lave forskellige koncepter til grow kit support siden I figma. Jeg fokuserede især meget på, hvordan home page siden til grow kit skal se ud, da det skal informere kunderne om meget. ",
+            "Ellers har jeg ikke lavet så meget andet I dag. Synes det har været en hyggelig dag og jeg er glad for, at jeg lærer Rotterdam og deres offentlige transport bedre at kende hver dag. ",
+            "Hej hej!"
+          ],
+          refleksionslog: [
+           "I min første uge hos Rotterzwam har jeg primært haft fokus på at finde mig til rette i virksomheden. Jeg har skulle forstå arbejdskulturen, opgaverne og virksomhedens værdier og mission. Det har været en uge med mange nye indtryk, og jeg har oplevet, hvordan det er at starte i en international og mindre virksomhed, hvor samarbejde og fleksibilitet spiller en stor rolle. ",
+           "(Læringsmål 2) I forhold til mine læringsmål om at arbejde i en international arbejdskultur, så har jeg allerede fået en bedre forståelse for, hvordan samarbejdet på tværs af sprog og arbejdsvaner fungerer i praksis. Dele af ugen har været hjemmearbejde på grund af for meget sne i Holland, så allerede her er jeg blevet udsat for selvstændigt arbejde, hvor kommunikation foregik digitalt, og hvor jeg selv skal tage ansvar for at få opfyldt mine opgaver. ",
+           "Det har været en udfordring, men samtidig har det gjort mig mere tryg ved at arbejde selvstændigt og samtidig skulle strukturere min tid. ",
+           "(Læringsmål 3) I forhold til mit mål om at planlægge og strukturere kreative projekter har jeg især arbejdet med research og idéudvikling. I løbet af ugen har jeg researchet forskellige hjemmesider og step-by-step guides, så jeg er forberedt til at arbejde med grow kit support-siden. Jeg har analyseret de forskellige emails som brugerne får tilsendt, når de har købt et grow kit, samt fundet frem til hvilke visuelle og funktionelle elementer, der kunne fungere godt. Jeg har arbejdet med at omsætte teorien fra studiet til praksis ved at samle inspiration, identificere visuelle elementer og begynde at udvikle konkrete koncepter i Figma. ",
+           "(Læringsmål 5) Jeg har også arbejdet med at forstå, hvordan en bæredygtig virksomhed arbejder med kommunikation, produktion og branding. Gennem rundvisning, research og samtaler med Noa har jeg fået en større forståelse for Rotterzwams fokus på cirkulær økonomi, deres mission og hvordan deres produkter, kommunikation og visuelle identitet hænger sammen. Jeg har fået meget ud af min research og det er inspirerende at se, hvordan bæredygtighed ikke blot er et budskab, men faktisk en del af hele virksomhedens arbejde. ",
+           "Samlet set har første uge været både udfordrende og lærerig. Jeg har været nervøs, men også oplevet, at jeg hurtigt er faldet mere til ro og føler mig mere tryg i mine opgaver. Jeg ser frem til de kommende uger, hvor jeg kan arbejde mere konkret med grow kit support-siden og generelt deres visuelle redesign og fortsætte med at udvikle mine faglige og personlige kompetencer!"
+          ]
+        }
+      ]
+    },
+
+    2: {
+      title: "Uge 2",
+      dateRange: "13. januar - 16. januar 2026",
+      entries: [
+        {
+          day: 5,
+          date: "13. januar 2026",
+          image: "/img/dag-5.png",
+          spontanlog: [
+            "Så er det starten på den anden uge af mit praktikforløb! Det har været en god dag I dag. Jeg er blevet sat mere ind I tingene og vores plan har ændret sig. ",
+            "I dag har teamet brugt dagen på at få diskuteret, hvad fremtiden skal være for Rotterzwam. Vi er I gang med en rebranding af hele den visuelle identitet, hvilket også er derfor jeg er blevet sat til omgangen af at lave en ny growkit support side. Planen var, at jeg allerede nu skulle gå I gang med illustrationer og hele design delen af support-siden, men efter møder I dag, så er Noa og jeg blevet enige om, at jeg burde hjælpe med selve det label, der er rundt om Grow kit’et. Der skal nemlig bestilles nye growkits hjem og vi vil gerne have, at det bliver med den nye rebranding. ",
+            "Selve mødet var rart at være en del af. Jeg følte mig mere en del af hele holdet, fordi jeg også fik lov til at komme med min mening. Men også generelt bare, at være med til et møde med teamet. Her fik vi også snakket om marketing osv. ",
+            "Senere på dagen skulle Noa og jeg også have et møde sammen med Mark, som jeg kalder “the boss”. Vi skulle sætte ham ind I, hvad planen helt præcist er med growkit support siden og hvad den skal bruges til. Her havde han også sine meninger, så det tog vi selvfølgelig til os. ",
+            "Men det var rart at være en del af, fordi Mark forstår ikke helt, hvor lang tid hele processen med at lave en rebranding af growkit’et kan tage. Så Noa hjalp mig til at give en tidsestimering af, hvor lang tid det ville tage. På den måde fik jeg et indblik I, hvordan man altså skal komme med en tidsestimering, da kunderne ofte ikke ved, hvor lang tid det faktisk kan tage. ",
+            "Men resten af dagen brugte jeg på at komme med idéer og forslag til, hvordan forskellige illustrationer kunne se ud. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 6,
+          date: "14. januar 2026",
+          image: "",
+          spontanlog: [
+           "I dag har været en stille og rolig dag. Strømmen var gået allerede da jeg mødte ind, så der var lidt problemer der. Men heldigvis var var strøm og internet I den anden bygning, som de kalder “de kroon”. Det er blandt andet der, hvor de laver de forskellige labels og grow kits. ",
+           "Her sad vi I noget tid og jeg arbejdede på de nye forskellige sketches og illustrationer til growkit labelet. Noa og jeg havde snakket om, at det ville være en god idé, at hun satte mig ind I hele den visuelle identitet’s rebranding. Så hun havde et helt powerpoint, som hun gerne ville vise mig. Det brugte hun ret lang tid på, men jeg er glad for det, fordi nu forstår jeg meget bedre hele den visuelle identitet. ",
+           "Herefter var strømmen heldigvis kommet tilbage. Jeg fortsatte med mit arbejde med illustrationer og senere tog jeg med ud og afleverede nogle svampe til en restaurant I Rotterdam. ",
+           "Men stort set hele dagen har gået på at forstå den visuelle identitet og lave illustrationer til det nye growkit. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 7,
+          date: "15. januar 2026",
+          image: "/img/dag-7.png",
+          spontanlog: [
+           "I dag har været en stille dag. Der er ikke sket så meget udover, at jeg har været I gang med illustrationer af growkit. Jeg fik lavede de forskellige illustrationer af forskellige faser, der er. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 8,
+          date: "16. januar 2026",
+          image: "/img/dag-8.png",
+          spontanlog: [
+            "Hej. I dag er det slutningen på ugen. Det var lidt sjovt, fordi jeg var den første der mødte ind, men heldigvis havde jeg fået en nøgle. ",
+            "Men ellers har jeg bare lavet illustrationer I dag. Jeg kiggede også til det growkit, som jeg holder øje med. På den måde er jeg faktisk med I hele processen og kan bedre forholde mig til, hvordan hele processen foregår. ",
+            "Jeg fik lavet en del videre på growkit illustrationerne og jeg startede også på nogle kaffe maskine illustrationer. Det er en lang process, fordi jeg vil gerne lave flere forskellige illustrationer, så holdet har noget at vælge af. "
+          ],
+          refleksionslog: [
+           "I løbet af uge 2 har jeg fået mulighed for at arbejde mere selvstændigt og også fordybe mig i opgaver som at illustrere illustrationer til growkit’et. Det har givet mig en bedre forståelse af, hvad min rolle er i virksomheden. ",
+           "(Læringsmål 2) I forhold til mit læringsmål om at arbejde i en international arbejdskultur, så har jeg oplevet, hvordan samarbejde ofte foregår fleksibelt og digitalt. Da jeg i denne her uge har arbejdet hjemme om torsdagen, så har jeg kunne udvikle min evne til at kommunikere tydeligt og samtidig tage ansvar for mine egne opgaver og hvad der skal være færdigt til næste dag. ",
+           "(Læringsmål 3) I den her uge (uge 2) har jeg især arbejdet med mit læringsmål om at planlægge og strukturere kreative projekter. Jeg har arbejdet med idéudvikling, skitsering og gentagelser for at skabe flere forskellige visuelle forslag, som teamet kan vælge imellem. Samtidig har jeg også fået indblik i, hvordan tidsestimering spiller en stor rolle i designprocesser, især når man skal forklare sit arbejde til personer, der måske ikke nødvendigvis har en designfaglig baggrund.  ",
+           "Samlet set har uge 2 styrket min faglige selvtillid og givet mig en klarere forståelse for, hvad mit ansvar er, men også generelt en forståelse for, hvordan Rotterzwam arbejder. Jeg føler mig mere tryg og er glad for, at jeg får gode og vigtige opgaver givet til mig. Jeg ser frem til at arbejde videre med illustrationerne og den visuelle udvikling af grow kits i de kommende uger!",
+          ]
+        }
+      ]
+    },
+
+    3: {
+      title: "Uge 3",
+      dateRange: "20. januar - 23. januar 2026",
+      entries: [
+        {
+          day: 9,
+          date: "20. januar 2026",
+          image: "/img/dag-9.png",
+          spontanlog: [
+           "Så er det starten på min tredje uge hos Rotterzwam! Jeg er overrasket over, hvor hurtigt dagene faktisk går. Jeg kan godt mærke, at det er anderledes at arbejde med projekter I praksis end hvad jeg har været vant til I undervisningen. ",
+           "Vi startede dagen ud med, at få holdt et møde. Det havde egentlig ikke så meget med mig at gøre, men jeg havde fri mulighed for at komme med inputs. Det var I forhold til, hvordan de forskellige produkter skulle udstilles I andre butikker som små landbrugs butikker. Vi vil nemlig gerne udtrykke den nye visuelle identitet mere, så folk er klar over, når produkter kommer fra Rotterzwam. ",
+           "Efter mødet besluttede Noa og jeg os for, at vi skulle have et møde eller en sparrings session sammen omkring den nye growkit support side, da jeg stort set er færdig med illustrationerne til growkit labelet. Mødet var ret langt, men også vigtigt. Det blev gjort klart for mig, hvordan support siden skulle opstilles, så det bliver tydeligt for brugerne, hvordan de skal navigere rundt I siden. ",
+           "Vi fik brugt et par timer på mødet og bagefter gik jeg videre med at designe, hvordan growkit siden skulle se ud. Vi blev enige om, at det ville være en god idé, at jeg lavede lo-fi prototyper, så jeg I næste uge kan vise det til resten af Rotterzwam teamet.  "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 10,
+          date: "21. januar 2026",
+          image: "/img/dag-10.png",
+          spontanlog: [
+           "I dag har været en dag, der stort set har bestået af det samme. Efter mødet med Noa I går, så har jeg kunne fortsætte med at lave videre på lo-fi skitsen I Figma. ",
+           "Jeg fik implementeret de forskellige sektioner, som Noa gerne ville have, der skulle være på growkit support homepagen. Da jeg var færdig med den, så kunne jeg gå videre med step 1 I growkit processen. Rotterzwam har haft en emailer, som er blevet lavet for mange år tilbage. Den passer ikke til den nye visuelle identitet og samtidig, så er den også forældet. Så vi har skulle lave informationerne om og samtidig sat strukturen anderledes. ",
+           "Så jeg har taget højde for, at når man går gennem de forskellige steps, så skal brugerne også kunne få svar på problemer, der eventuelt ville kunne opstå under growkit processen. ",
+           "Jeg nåede stort set at blive færdig med step 1 I dag, men jeg mangler stadig lidt, så den kan blive ordentlig færdig, men det må jeg nå I morgen :)",
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 11,
+          date: "22. januar 2026",
+          image: "/img/dag-11.png",
+          spontanlog: [
+           "I dag har jeg stort set bare arbejdet videre på lo-fi prototypen I Figma. Jeg brugte rimelig lang tid på, at finde frem til, hvordan de forskellige sektioners layout skulle se ud. ",
+           "Jeg begyndte også at starte på step 2, som handler mere om, hvordan de forskellige lag skal være I growkit’et. Men jeg tænker at jeg må nå resten af step 2 I morgen. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 12,
+          date: "23. januar 2026",
+          image: "/img/dag-12.png",
+          spontanlog: [
+            "I dag er det slutningen på uge 3. Jeg har arbejdet videre på lo-fi prototypen og fået lavet meget af step 2, men jeg mangler dog stadig nogle få sektioner til sidst. Jeg har lidt problemer, da jeg gerne vil lave en forbedret udgave af Rotterzwams timeline af deres growkit. Så brugeren hurtigt kan se, hvor lang tid de skal bruge på hver step, så Rotterzwam slipper for at få mails og opkald, hvor folk spørg, hvordan de skal lave growkit’et korrekt. ",
+            "Jeg regner med, at jeg vil arbejde lidt videre I weekenden, da jeg allerede I næste uge skal præsentere lo-fi prototypen til resten af teamet.",
+            "Men jeg glæder mig til, at se, hvordan de andre steps kommer til at se ud. Jeg synes egentlig det er ret fedt at arbejde med og at jeg får lov til at sidde med noget så vigtigt som en support side!"
+          ],
+          refleksionslog: [
+            "Så har jeg været i gang med tredje uge. I den her uge har jeg arbejdet med lo-fi growkit prototypen som et konkret projekt og det har krævet, at jeg både kan tænke i brugerens brugeroplevelse, struktur og selvfølgelig den visuelle sammenhæng med Rotterzwams nye visuelle identitet. ",
+            "(Læringsmål 3) Jeg vil sige, at jeg i denne her uge har arbejdet med læringsmålet om at planlægge og strukturere kreative projekter. Jeg har skulle arbejde sammen med Noa omkring strukturen og teksten, der skal være på support-siden, men samtidig har jeg selv skulle finde hoved og hale i, hvordan det ville blive visuelt bedst præsenteret.",
+            "Jeg har hele tiden skulle arbejde ud fra brugernes perspektiv. Ved at gentænke, hvordan growkit processens forskellige steps og informationer ville give bedst muligt, så Rotterzwam i fremtiden ikke skal svare på alle mulige mails og opkald. ",
+            "(Læringsmål 2)I forhold til mit læringsmål om at arbejde i en international og professionel arbejdskultur har jeg igen oplevet, at jeg bliver inddraget i beslutninger og får ansvar for vigtige dele af projektet. Det er virkelig motiverende at de giver mig tillid til at arbejde med en central support side, som har stor betydning for Rotterzwams kunder.",
+            "Jeg vil sige at uge 3 har styrket min forståelse for brugervenlighed og hvordan jeg skal kommunikere virksomhedens identitet. Jeg føler at jeg udvikler mine figma færdigheder og generelt, hvordan jeg træffer designvalg. Jeg ser frem til at præsentere lo-fi prototypen for resten af teamet og få feedback, som kan bruges til at videreudvikle løsningen i de kommende uger!"
+           
+          ]
+        }
+      ]
+    },
+    4: {
+      title: "Uge 4",
+      dateRange: "27. januar - 30. januar 2026",
+      entries: [
+        {
+          day: 13,
+          date: "27. januar 2026",
+          image: "/img/dag-13.png",
+          spontanlog: [
+           "Det er I dag allerede den fjerde ugen af min praktik. Jeg er overrasket over, hvor hurtigt tiden faktisk går. Men det er I den her uge, hvor jeg skal præsentere lo-fi prototypen af growkit support siden.",
+           "Jeg synes at det har været en virkelig god dag I dag. På trods af at jeg er I en virksomhed, hvor de fleste snakker Hollandsk, så kan jeg mærke at folk gerne vil have at jeg er en del af fællesskabet også selvom, at jeg bare er en “praktikant”. ",
+           "Jeg har egentlig ikke lavet så meget end at få styr på lo-fi skitserne. Jeg har også haft brugt tid på dem henover weekenden, men jeg er stadig ikke helt tilfreds. Jeg kan mærke, at jeg synes faktisk det er en virkelig stor opgave, som jeg er blevet sat I gang med. Jeg er både glad for det, men det er også lidt hårdt. Jeg er bange for at jeg gør noget forkert, men det er jo hele pointen med lo-fi prototypen. At man fanger fejlene tidligt. Jeg er spændt på, hvad resten af teamet siger I morgen til min såkaldte “præsentation”. ",
+           "Jeg synes egentlig det går meget godt. Jeg skal nok nå at blive færdig til I morgen. Der er bare meget information, der skal fortælles på kort plads, da jeg ikke vil have at brugerne skal bruge alt for meget tid på at scrolle, hvis de bare gerne vil I gang med deres growkit. ",
+           "Men ja. Stort set hele dagen har jeg arbejdet videre på prototypen. Det kan hurtigt blive tungt, men heldigvis er det ikke alle dage, der er så tunge. Jeg tror jeg har fundet ud af, at jeg egentlig godt kan lide en hverdag, hvor der sker lidt forskelligt. Der skal ske noget andet end bare at sidde foran computeren, så jeg vil sige at jeg egentlig er rimelig heldig med at arbejde I en lille virksomhed, så jeg står for flere opgaver. ",
+           "Det var alt for I dag! Hej hej. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 14,
+          date: "28. januar 2026",
+          image: "/img/dag-14.png",
+          spontanlog: [
+           "I dag har været en spændende dag. Det har været dagen, hvor jeg har skulle præsentere min lo-fi prototype af growkit support hjemmesiden. ",
+           "Til at starte med gik Noa og jeg over, hvad der kunne være vigtigt, at jeg lige fortalte til mødet. Det var egentlig rart nok, fordi hun er vant til at have med teamet at gøre, men også erfaring med at håndtere møder med andre kunder, der måske ikke har den samme grafiske erfaring. ",
+           "Mødet var først kl. 12, så jeg havde lige nogle timer inden at jeg skulle være klar. Jeg brugte tiden på at gøre lo-fi prototypen færdig og til min egen overraskelse blev jeg faktisk færdig. ",
+           "Til mødet var jeg spændt på, at fortælle teamet, hvad jeg havde brugt den sidste uge på at arbejde på. Jeg gennemgik figma prototypen og de forskellige steps, som brugeren bliver guidet igennem. Herefter kom de så med noget feedback på, hvordan de forskellige illustrationer kunne se ud, samt de forskellige sektioner. Jeg noterede det selvfølgelig, men de var mest af alt faktisk imponerede og jeg tror I hvert fald at de godt kunne lide det. Det var faktisk mest af alt Noa, der kom med nogle kommentare på designet, men hun er selvfølgelig også mere design orienteret. ",
+           "Efter mødet kunne jeg gå I gang med at redesigne dele af prototypen, som jeg havde fået feedback på."
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 15,
+          date: "29. januar 2026",
+          image: "",
+          spontanlog: [
+           "I dag har jeg brugt dagen på, at få styr på alt den feedback som jeg har fået til mødet og så implementere det på selve designet. ",
+           "Jeg har også brugt tiden på at finde nogle templates på webflow, der eventuelt ville kunne hjælpe med at skabe hele support hjemmesiden. Hele teamet og jeg er blevet enige om, at de gerne vil køre deres hjemmeside over webflow, så det er jeg gået med til. Det giver mig også en udfordring eftersom, at jeg aldrig rigtig har arbejdet med hjemmeside builders. Så jeg er spændt på det, men også lidt bange. Men tænker at det nok skal gå nu, hvor jeg allerede har rimelig godt styr på, hvordan man sætter en hjemmeside op med kode!"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 16,
+          date: "30. januar 2026",
+          image: "/img/dag-16.png",
+          spontanlog: [
+           "Sidste dag af fjerde uge! Tiden går stærkt. Dagen har egentlig været ret stille og rolig. Jeg viste Noa de forskellige templates jeg havde fundet, men det har været ret svært, da mange af de templates der findes er mere til ecommerce osv, mens vi har brug for en template der skal fungere som en slags storytelling. ",
+           "Men vi endte med at finde en endelig template og jeg er spændt på, at arbejde ud fra den og kunne implementere min lo-fi prototype over til en mere officiel struktur. ",
+           "I dag spiste hele teamet også frokost sammen. Det var hyggeligt, men jeg kan godt mærke at jeg lige skal vænne mig til, at jeg ikke kan være med I alle samtaler, når de snakker Hollandsk. Men jeg vil sige, at de gør deres bedste for at inkludere mig. ",
+           "Resten af dagen brugte jeg egentlig på, at starte på et figma mockup, så jeg er klar til næste uge. Det skal nok blive godt, selvom jeg er faktisk ved at være lidt nervøs på om jeg har tid nok til at blive færdig med hele support hjemmesiden. "
+          ],
+          refleksionslog: [
+            "Jeg synes at fjerde uge har været vigtig for mit praktikforløb, da jeg for første gang faktisk skulle præsentere noget af mit arbejde for hele teamet. Jeg har skulle præsentere lo-fi prototypen af growkit support-siden, som jeg har arbejdet lang tid på og den har samtidig fyldt meget. ",
+            "(Læringsmål 2) I forhold til mit læringsmål om at arbejde i en international arbejdskultur har jeg oplevet, at jeg mere og mere føler mig inkluderet i fællesskabet hos Rotterzwam. Selvom sproget ofte er hollandsk, så oplever jeg, at teamet aktivt gør en indsats for at inkludere mig. ",
+            "I forhold til præsentationen af lo-fi prototypen, så følte jeg at det var en udfordring for mig, da jeg i hvert fald følte, at der var et stort ansvar for, at løsningen fungerede og gav mening for teamet. Feedbacken fra teamet var positiv og konstruktiv, og det gav mig større selvtillid i mine designvalg. Især sparringen med Noa har hjulpet mig til at udtrykke mine tanker mere klart og forklare designbeslutninger til personer uden samme designfaglige baggrund. ",
+            "(Læringsmål 3) Denne uge har igen styrket mit læringsmål om at planlægge og strukturere kreative projekter. Overgangen fra lo-fi prototype til næste fase har også gjort det klart for mig, hvor vigtigt det er at arbejde iterativt, hvilket er også derfor at jeg er glad for at jeg arbejder med lo-fi først. Desuden er jeg spændt på at arbejde videre i webflow, da det er en ny faglig udfordring for mig, da jeg ikke har arbejdet i website builders før. ",
+            "Samlet set har uge 4 været både krævende og lærerig. Jeg kan mærke, at opgaven er stor, men samtidig giver det mig motivation at arbejde med noget, der har reel betydning for virksomheden. "
+           
+          ]
+        }
+      ]
+    },
+     5: {
+      title: "Uge 5",
+      dateRange: "3. februar - 6. februar 2026",
+      entries: [
+        {
+          day: 17,
+          date: "3. februar 2026",
+          image: "/img/dag-17.png",
+          spontanlog: [
+         "Hej. I dag er det starten på den femte uge. Jeg har I dag startet på webflow filen, som growkit support hjemmesiden skal bygges og hostes over. ",
+         "Jeg er spændt på at komme længere ind I webflow, men lige nu kan jeg godt mærke at det er noget anderledes at sidde med end bare kode. Men jeg tror godt, at jeg kan lide det. Det er mere design orienteret og føles egentlig lidt mere som figma, men bare som en website builder. ",
+         "Men grundlæggende så har jeg rodet rundt med de forskellige funktioner, som webflow tilbyder og så er jeg begyndt på homepagen. Jeg er dog ikke nået særlig langt, da jeg lige skal I gang med, hvordan det fungere. ",
+         "Kan godt mærke at alle de interaktioner og animationer, som man kan lave er lidt overvældende. Jeg sad I hvert fald I lang tid og tænkte: “Det kommer til at tage noget tid at lære de her animationer at kende”. Men det skal nok gå! Jeg er positiv overfor det og håber bare at jeg bliver endnu bedre til det. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 18,
+          date: "4. februar 2026",
+          image: "",
+          spontanlog: [
+          "I dag har faktisk været en spændende dag. Noa og jeg havde et møde med en, der hedder Lisa som arbejder for Sporo, som er et firma der producere circulært substrat til blandt andet svampe. ",
+          "De har lige lavet en ny hjemmeside, men Lisa spurgte efter noget feedback på hjemmesiden, da hun er helt ny til at bygge hjemmesider. Så hun spurgte os om vi kunen give hende noget feedback. Det var faktisk rart at være med til det møde og at jeg fik lov til at være en del af det og komme med noget feedback. ",
+          "Derefter skulle Noa og jeg have et “halfway meeting” af min praktik. Hun spurgte ind til, hvordan jeg indtil videre har haft det med praktik og også bare generelt, hvordan jeg havde det. Det var virkelig rart at have den samtale og også bare I forhold til, hvordan jeg opfylder mine læringsmål osv.  Hvortil at jeg egentlig har opfyldt mange af mine læringsmål og at jeg endelig bare skal sige til, hvis jeg vil lave noget mere med animation eller produktion af produkter. Men indtil videre tænker jeg, at jeg har nok at se til med support growkit hjemmesiden.",
+          "Efter mødet gik vi tilbage til “farmen” og så kunne jeg lave videre på webflow hjemmesiden. Jeg kan godt mærke at det er noget andet end kode. Det er ikke fordi at det er svært som sådan, men jeg har godt nok svært ved lige at finde hoved og hale I, hvordan interaktionerne og animationerne fungere. Jeg vil virkelig gerne lære det og jeg tænker da også I morgen, at jeg helt sikkert skal dykke endnu dybere ned I det. ",
+          "Men det var alt for I dag :)"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 19,
+          date: "5. februar 2026",
+          image: "/img/dag-19.png",
+          spontanlog: [
+            "I dag har været en god dag, hvor jeg primært har arbejdet på webflow. Jeg kan mærke at jeg faktisk er lidt frustreret over, hvordan webflow virker og alle deres animationer. Det får mig til at tvivle og samtidig gør det at jeg bliver mere nervøs for, at jeg ikke når deadline af hjemmesiden inden min praktik er ovre. ",
+            "Men jeg vil gøre mit bedste for at få hjemmesiden færdig og uanset hvad, så skal det nok gå. ",
+            "Jeg er stadig I gang med forsiden og den er også stort set færdigt, men jeg skal stadig have sat mig ordentlig ind I animationerne og hvordan de lige fungere. Samtidig skal jeg også have lavet flere illustrationer, da den mere eller mindre skal bestå af illustrationer frem for billder. Men ja, jeg har stort set fokuseret på forsiden/homepagen I dag. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 20,
+          date: "6. februar 2026",
+          image: "/img/dag-20.png",
+          spontanlog: [
+           "I dag har jeg valgt, at jeg slet ikke vil fokusere på hjemmesiden. Jeg må få kigget noget mere på illustrationerne I weekenden eller næste uge. Men jeg kan mærke, at jeg har brug for at lave noget andet end at arbejde med hjemmesiden hele tiden, så derfor besluttede jeg mig for at arbejde på en illustration, der skal vise brugeren hele growkit tidslinjen, så de har en idé om, hvor lang tid hele processen kommer til at tage. ",
+           "Jeg startede dagen ud med at levere nogle svampe til et museum her I Rotterdam, sammen med Noa. Det var egentlig rart nok lige at få startet dagen ud sådan. Da vi kom tilbage gik jeg egentlig bare I gang med at lave en sketch af, hvordan illustrationen skal se ud. ",
+           "Bagefter kunne jeg så begynde at lave den ovre I illustrator og på trods af at jeg har siddet virkelig længe med illustrationen, så er jeg stadig ikke færdig. Tror det er fordi jeg virkelig gerne vil have at brugeren skal forstå tidslinjen med det samme uden at stille spørgsmålstegn. ",
+           "Men jeg mangler at få lavet nogle flere illustrationer af ikoner til den og desuden skal jeg have rettet den lidt til, så de rigtige tider også bliver vist på den. Men jeg glæder mig til at den er færdig :)",
+           "Men det var alt for I dag og egentlig også den her uge? Hej hej!"
+          ],
+          refleksionslog: [
+           "Uge 5 har været mit halvvejs-punkt af mit praktikforløb og det har også været skiftet, hvor jeg er gået fra primært at arbejde med design og prototyper til at begynde den endelige implementering af grow kit support-siden i Webflow. Det har været en uge, som har været udfordrende og samtidig selvfølgelig lærerig, da jeg har skulle lære nye værktøjer at kende. ",
+           "(Læringsmål 3) I forhold til mit læringsmål om at planlægge og strukturere kreative projekter har arbejdet i Webflow gjort at jeg har fundet ud af, hvor anderledes det er at bygge en løsning frem for bare at designe den i Figma. Selvom jeg har erfaring med kode, har Webflow været en ny udfordring for mig. Især interaktioner og animationer har virket overvældende, og jeg har oplevet frustration og tvivl om, om jeg kan nå i mål inden praktikperioden slutter. Samtidig har det gjort mig mere bevidst om vigtigheden af at tage tingene skridt for skridt og acceptere, at sådan et projekt godt kan skabe usikkerhed, men så længe jeg arbejder hårdt, så skal det nok gå. ",
+           "I løbet af ugen havde jeg et møde med Lisa fra Sporo, samt halway mødet med Noa, som har givet mig refleksion over min egen faglige udvikling. Jeg har fået lov til at give feedback på en andens hjemmeside og det har styrket min selvtillid og gjort at jeg stoler på mine egne kompetencer. Samtalen med Noa har desuden hjulpet mig med at få overblik over mine læringsmål og gjort det tydeligt, at jeg allerede har opnået meget i mit praktikforløb. ",
+           "I slutningen af ugen valgte jeg bevidst at skifte fokus væk fra Webflow og arbejde med illustrationer og gjort det klart for mig at det er vigtigt også at have noget variation i sit arbejde, så man ikke går død. ",
+           "Samlet set har uge 5 været mentalt krævende, men også spænende og jeg synes jeg udvikler mig. Jeg har fået forståelse for, hvordan det føles at stå med et ansvar for et projekt. Samtidig har ugen gjort mig mere bevidst om mine egne styrker og grænser. I næste uge håber jeg at jeg har større motivation for at fortsætte arbejdet med både webflow og illustrationerne!"
+
+           
+          ]
+        }
+      ]
+    },
+
+      6: {
+      title: "Uge 6",
+      dateRange: "10. februar - 13. februar 2026",
+      entries: [
+        {
+          day: 21,
+          date: "10. februar 2026",
+          image: "/img/dag-21.png",
+          spontanlog: [
+            "Så er det begyndelsen på den sjette uge af mit praktikforløb!",
+            "Synes det er vildt, at der allerede er gået så lang tid. Nå, men I dag har været en god dag, men jeg har ikke fået lavet så meget må jeg indrømme. Jeg synes stadig webflow er virkelig svært og underligt at arbejde med, men det går fremad. ",
+            "I dag har jeg haft fokus på at starte på step 1 af support hjemmesiden, da det er de forskellige steps, der er de vigtigste I forhold til f.eks. homepagen. ",
+            "Så I det mindste fik jeg startet på step 1. Men jeg har fået mere styr på, hvordan interaktions delen fungere og jeg kan vel kun blive bedre til det. ",
+            "Men synes stadig det har været en god dag. Måske ikke så produktiv, men det er fordi jeg simpelthen har været sat fast I sektioner, som jeg ikke forstod, hvordan jeg lige skulle løse. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 22,
+          date: "11. februar 2026",
+          image: "/img/dag-22.png",
+          spontanlog: [
+            "Hej log, ",
+            "I dag har været en god dag, men også produktiv. Dagen har måske ikke været så spændende, da jeg bare har været foran skærmen hele dagen, men det har også gjort at jeg har kunne fokusere på webflow og på support-siden. ",
+            "Det var egentlig meningen, at hele teamet skulle have haft et møde I dag, så de kunne se hvor langt jeg er nået med hjemmesiden, men vi har været nødt til at aflyse det, da jeg næsten ikke har kunne vise noget. Det er selvfølgelig lidt irriterende og frustrerende, men jeg har simplethen ikke haft nok tid. ",
+            "Men alligevel synes jeg at jeg har formået at være rimelig produktiv. Jeg er som sagt begyndt på step 1 og lige nu har jeg fokus på de første sektioner, men jeg vil også genre have at de bliver fede, så derfor leger jeg også lidt med forskellige interaktioner. ",
+            "Jeg fik også kigget lidt på illustrator, da jeg gerne vil have nogle ikoner/illustrationer ind på support-siden, så det supplere til at gøre den mere spændende. ",
+            "Noa har også lært mig lidt I forhold til grids osv, som jeg måske ikke normalt tager så meget højde for. Det er en helt ny verden, der åbner sig, men det gør også at jeg tager mere hensyn til afstand, som selvfølgelig også kan tage mere tid. ",
+            "Men jeg tror det var alt for I dag!"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 23,
+          date: "12. februar 2026",
+          image: "/img/dag-23.png",
+          spontanlog: [
+            "I dag har været en god dag. Jeg er begyndt at lege lidt med, hvordan jeg kan intereagere forskellige illustrationer ind I designet på support siden, så brugeren faktisk vil fortsætte med at scrolle på trods af meget information. ",
+            "Tror måske jeg er blevet lidt overrasket over, hvor lang tid det faktisk tager bare at lave en sektion. Det er jeg lidt overrasket over, men det tager selvfølgelig også tid, at få lavet det rigtigt især når jeg også stadig skal sætte mig ind I webflow og dens interaktioner. ",
+            "Men det var nok det for I dag. Jeg fik lavet den første sektion til Step 1: Starting, så det er rigtigt her, hvor historien skal udfolde sig. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 24,
+          date: "13. februar 2026",
+          image: "/img/dag-24.png",
+          spontanlog: [
+            "Det er slutningen på den sjette uge. Jeg har haft fokus på, at jeg gerne vil have en vanddråbe til at løbe, når brugeren scroller på hjemmesiden. Sektionen handler nemlig om, at ens kaffegrums skal have nok fugt for, at det fungere som substrat til svampene. ",
+            "Så jeg har virkelig bøvlet med, at få det til at fungere og sidde rigtigt. Så jeg har både arbejdet med forskellige positions og sticky, så dråben ikke bevæger sig, men der er tekst, der “løber” forbi den. Det har været lidt svært at sidde med, da jeg aldrig rigtigt har leget så meget med det førhen. Men det er nu spændende nok at lære det. Det eneste jeg kunne være bange for er, når den skal være responsive, men det må jeg tage på et andet tidspunkt. ",
+            "Ellers har jeg også brugt meget tid inde I illustrator, hvor jeg blandt andet har lavet en illustration af en vandhane, kaffegrums og selvfølgelig vanddråber. Så har jeg også prøvet at lege lidt med at tilføje rotterzwams visuelle identitet på det. ",
+            "Hej hej!"
+          ],
+          refleksionslog: [
+        
+            "I uge 6 har jeg brugt tid på især arbejdet i Webflow og med interaktioner. Selvom jeg til tider har følt, at det har gået langsomt, så har jeg også lært meget i forhold til det tekniske i Webflow, men også taget højde for designmæssige beslutninger. ",
+            "(Læringsmål 3) I forhold til mit læringsmål om at planlægge og strukturere kreative projekter har jeg oplevet, hvor tidskrævende det er at omsætte design til en fungerende, interaktiv løsning i Webflow. Arbejdet med step 1 og de første sektioner har gjort det tydeligt, at selv små sektioner med afstande, grids og interaktioner tager lang tid. Sparringen med Noa omkring grids og layout har åbnet mine øjne for, hvor vigtigt det er at tage højde for brugeren, når de går gennem designet, så det hele tiden opleves som spændende. ",
+            "Arbejdet med interaktioner og animationer i Webflow har været både frustrerende, men også lærerigt. Jeg har flere gange følt mig sat fast, især når funktioner ikke fungerede, som jeg forventede. Men jeg har også lært, at jeg kan bruge dem til at guide brugeren gennem noget information. Eksempelvis arbejdet med vanddråbe-animationen og sticky position har gjort mig mere bevidst om, hvordan bevægelse kan understøtte fortælling og skabe en mere engagerende brugeroplevelse. ",
+            "Jeg er også blevet mere opmærksom på, hvor lang tid det faktisk tager at skabe kvalitet i en digital løsning. En sektion kan tage flere timer, især når man samtidig lærer et nyt værktøj. ",
+            "Samlet set har uge 6 været teknisk udfordrende, men jeg har også lært en masse i Webflow. Jeg har mærket både frustration og fremgang, og jeg oplever at jeg bliver bedre og mere tryg i Webflow og arbejdet med interaktioner. Selvom processen kan føles langsom, så kan jeg tydeligt se min egen læring og det motivere mig også til at arbejde videre med support-siden. "
+
+           
+          ]
+        }
+      ]
+    },
+
+          7: {
+      title: "Uge 7",
+      dateRange: "17. februar - 20. februar 2026",
+      entries: [
+        {
+          day: 25,
+          date: "17. februar 2026",
+          image: "",
+          spontanlog: [
+           "Hej, det er i dag den syvende uge af mit praktikforløb. Jeg begyndte dagen med, at Noa og jeg tog ud til et trykkeri i Rotterdam, der hedder “Tromp Print & Packaging”. Det har været nogle af Rotterzwams samarbejdspartnere i lang tid, men eftersom growkit’et har brug for et nyt omslag. ",
+           "Noa stod mest for at lave designet til omslaget, men det er mine illustrationer af growkit processen, som er blevet brugt. Det er jeg faktisk lidt stolt over. Altså at det måske mest populære produkt har mit design over sig. ",
+           "Men ja, vi tog ud til trykkeriet og manden, der modtog os var virkelig flink. Vi fik snakket om, hvordan farverne ville se allerbedst ud på de forskellige papir typer. Jeg er glad for at jeg blev taget med i processen, da jeg ellers næsten ikke ved noget som helst om print og tryk, udover at man skal bruge CMYK til print og RGB til skærm. ",
+           "Efter snakken tilbudte han, at give os en tur rundt på trykkeriet. Jeg var fascineret af alle  de forskellige tryk, som de laver til forskellige mærker. De var virkelig flotte. ",
+           "Herefter blev vi lukket ind, hvor selve maskinerne var. Her så vi maskinerne, der trykker de forskellige udformninger af papiret, men også selve printeren. Tror aldrig jeg har set sådan en stor printer. ",
+           "Men efter turen rundt i trykkeriet, så kørte Noa og jeg tilbage til Rotterzwam farmen. Her fik jeg arbejdet videre med growkit hjemmesiden. Jeg er blevet mere komfortabel i webflow og kan mærke at det går frem ad. Jeg er ved at få styr på, hvordan de forskellige elementer skal implementeres også uden kode. Webflow er mere eller mindre ligesom Figma’s layout, men selvfølgelig med flere regler, da den står for at lave en hjemmeside. ",
+           "Jeg har også fået leget med nogle flere interaktioner, så når man scroller, så bliver forskellige elementer animeret til at bevæge sig lidt eller lave en “slide from bottom”. ",
+           "Jeg har fået lavet to sektioner i dag. Sektionen med, hvor growkit’et ville have bedst at stå henne og så fik jeg også lavet det sidste step af step 1, der skal navigere brugen hen til næste step eller tage brugeren tilbage til homepagen. ",
+           "Jeg synes jeg har lært meget i dag og det har været en god dag. Jeg er glad for at jeg sagde ja, til at tage med hen på trykkeriet!"
+          ]
+        },
+
+         {
+          day: 26,
+          date: "18. februar 2026",
+          image: "/img/dag-26.png",
+          spontanlog: [
+            "Dagen begyndte med en hurtig levering af svampe til Dutch Photomuseum. Herefter kom vi tilbage til farmen, hvor jeg stille og roligt begyndte på hjemmesiden. ",
+            "Jeg er stort set blevet færdig med step 1, så jeg er så småt begyndt på step 2 af hjemmesiden. Den skal handle om, hvordan brugeren fylder growkit’et med kaffegrums. ",
+            "Men jeg besluttede mig for, at jeg gerne ville gå gennem step 1 med Noa og høre, hvad hun syntes om det. Her kom hun med nogle forbedringer, men det hun lagde tryk på, var at jeg måske skulle fokusere på kontraster, som ikke kun er farver. Men altså at jeg begynder at tænkte over, hvordan størrelser og former kan være med til at skabe et visuelt hierarki og en bedre brugeroplevelse. ",
+            "Så i dag har jeg haft fokus på, at jeg fra step 2 gerne vil begynde at lave flere forme og størrelser, der nødvendigvis ikke er perfekte, men som skaber en større kontrast på siden. Vi fik også snakket lidt om, at jeg måske skulle sørge for at have mere fokus på White space også, så det guider brugeren bedre, men samtidig gør at brugeren får plads til at tage en pause. Så det vil jeg også begynde at have fokus på!"
+
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 27,
+          date: "19. februar 2026",
+          image: "/img/dag-27.png",
+          spontanlog: [
+           "I dag har jeg brugt meget af tiden på, at få opsat step 2 af support siden. Jeg har gerne ville tage det til mig, at arbejde mere med former og størrelser og samtidig have lidt fokus på, at der er white space, så brugeren får mulighed for at stoppe op og trække vejret uden at brugergrænsefladen er fyldt med information. ",
+           "Så jeg har brugt virkelig lang tid på den første sektion på step-2 siden, da den havde ret lange afsnit med tekst. Så jeg har hele dagen rodet med, hvordan sektionen skulle se ud. ",
+           "Jeg vil sige, at jeg er ret glad for, hvordan det endeligt er kommet til at se ud. Også I forhold til forskellige forme og størrelser, samtidig med farverne, der fortæller det visuelle hieraki og hvordan brugeren skal læse indholdet. "
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 28,
+          date: "20. februar 2026",
+          image: "/img/dag-28.webm",
+          spontanlog: [
+           "Hej log, ",
+           "I dag har været en lang, men god dag. Jeg synes at jeg har været virkelig produktiv. Jeg begyndte dagen med at gå i gang med webflow. Jeg skulle nemlig have lavet en sektion, der fortæller brugeren om, hvornår de skal tilføje et nyt lag af kaffegrums og samtidig med, hvordan de kan gøre det mest effektivt. Samtidig har jeg også taget det til mig, at former størrelser kan være med til at hjælpe med det visuelle hierarki, men også generelt bare til at gøre hjemmesiden mere spændende. ",
+           "Jeg fik leget lidt med, hvordan sticky positionering kan gøre siden mere legende og 3D agtig, altså parralax. Desuden er jeg virkelig stolt over, at jeg endelig har fået leget med LottieFiles, som er den her hjemmeside eller program, der fungerer ligesom Adobe After Effects, men det er en JSON baseret animerings program. Så man kan lave alle mulige fede animationer i programmet og så eksportere det til Lottie JSON-fil, som er en meget lille fil, men kvaliteten er der stadig. Synes det er virkelig fedt. ",
+           "Så jeg brugte meget af dagen på, at få styr på LottieFiles. Jeg har dog arbejdet lidt med det før. Først lavede jeg min vektorgrafik af en kaffekop inde i illustrator. Meningen er at jeg gerne ville animere koppen, så den roterer rundt imens, der er noget tekst der skifter. Herefter kunne jeg så sætte det ind i lottiefiles, hvorefter jeg kunne begynde at animere ligesom man kan i after effects. Det smarte er, at webflow og lottiefiles fungere virkelig godt sammen. Så animationen den animeres kun på hjemmesiden, når man scroller. Det er også med til at give brugeren noget kontrol og gøre hele brugeroplevelsen mere interessant. ",
+           "Samtidig så har jeg også opfyldt mit læringsmål om at bruge relevante design- og redigeringsværktøjer. Jeg vil sige at jeg er virkelig glad og stolt over at jeg har fået det til at virke i dag. Det giver mig endnu mere motivation og vil helt sikkert kigge mere ind i lottiefiles senere!"
+          ],
+          refleksionslog: [
+        "I uge syv har jeg både arbejdet med den digitale udvikling af growkit-supportsiden og fået indblik i den fysiske produktion gennem besøget hos trykkeriet ”Tromp Print & Packaging”. ",
+        "(Læringsmål 4) Besøget hos trykkeriet understøtter mit læringsmål om at kunne skabe visuelt materiale og designelementer, der understøtter Rotterzwams visuelle identitet, samt udforske hvordan digitale designs kan oversættes til fysiske formater som tryk. ",
+        "Synes det har givet mig meget at se hvordan illustrationer blev en del af et fysisk produkt, og hvordan farver, materialer og trykteknikker påvirker det endelige resultat. Jeg fik altså en større forståelse for, hvordan designbeslutninger ikke kun fungerer på skærm, men også skal kunne fungere i en fysisk kontekst. ",
+        "(Læringsmål 1) Arbejdet med growkit-supportsiden har helt klart også understøttet mit læringsmål om at anvende relevante design-og redigeringsværktøjer. ",
+        "Jeg har eksperimenteret i Webflow med interaktioner og animationer, herunder brugen af Lottiefiles. At få Lottie-Animationer til at fungere i Webflow har styrket min tekniske forståelse, men også styrket min motivation. Det har givet mig en større selvtillid og jeg oplever, at jeg er blevet gladere for Webflow, men jeg er også stolt over, at jeg har fået det til at virke. Det har åbnet hele nye døre for mit webdesign. ",
+        "Derudover har feedbacken fra Noa gjort, at jeg tænker mere over arbejdet med visuelt hierarki, kontraster i former og størrelser samt brugen af white space. Jeg er blevet klogere på mine designvalg og hvordan de påvirker brugerens forståelse og navigation af sitet. Så jeg tænker i hvert fald i højere grad over struktur og informationsopbygningen. ",
+        "Samlet set så har uge 7 gjort, at jeg har udviklet mig meget. Jeg har større designbevidsthed og jeg har fået en forståelse for sammenhængen mellem digital og fysisk produktion. Jeg kan mærke, at jeg udvikler mig fra at fokusere på det æstetiske udtryk alene til i højere grad at tænke over funktion, struktur og brugeroplevelse. "
+
+
+           
+          ]
+        }
+      ]
+    },
+
+           8: {
+      title: "Uge 8",
+      dateRange: "24. februar - 27. februar 2026",
+      entries: [
+        {
+          day: 29,
+          date: "24. februar 2026",
+          image: "/img/dag-29.webm",
+          spontanlog: [
+            "Så er det starten på den ottende uge! Jeg har brugt dagen på at være fokuseret og få lavet sidste del af step 2 af supportsiden. ",
+            "Det har været en lang sektion at skulle lave på trods af, at den bruger flere af de samme komponenter. Jeg har haft fokus på, at lede brugeren gennem en slags storytelling, der udvikler ved hjælp af scroll. ",
+            "Så igen har jeg haft fat i lottiefiles, så jeg kunne animere elementer og herefter få det til at samarbejde med webflow, så det kun animeres ved scroll. ",
+            "Elementerne, som jeg gerne ville animere skulle animeres ved hjælp af “trim paths”, så den skulle gå fra 0% til 100%. På den måde animeres stien som om, at den bliver tegnet eller i mit tilfælde, som at det vokser. Det skal nemlig forestille en simpel illustration/animation af mycelium, der vokser hen til næste “card” med information. ",
+            "Jeg har brugt dagen på at lave animationerne og så de forskellige “cards”, som jeg gerne ville have skulle ligne hinanden på trods af, at de ikke er samme størrelse, da de har forskellig mængde tekst. ",
+            "Slutningen af dagen brugte jeg på at rette det hele til, samt jeg fik lavet en slags pop-up modal, der leder brugeren videre til den officielle Rotterzwam side, hvis de gerne vil lære mere eller købe flere produkter. ",
+            "Men det var stort set alt for i dag. Jeg er faktisk blevet virkelig glad for at animere, selvom at det ikke er de største animationer eller illustrationer. Men jeg bliver glad og motiveret over, at jeg bringer noget til “live”"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 30,
+          date: "25. februar 2026",
+          image: "/img/dag-30.webm",
+          spontanlog: [
+            "Hej log. Jeg begyndte dagen med at tage ud for at aflevere nogle grow kits til et hospital, men vi brugte simpelthen så lang tid på, at finde ud af, hvor den lille pakke skulle afleveres henne.",
+            "Derefter tog vi videre hen til centrum af Rotterdam, da vi havde brug for noget farvet papir, der matchede Rotterzwams farvepalette. Da vi havde skaffet det tog vi tilbage til farmen og jeg begyndte på webflow hjemmesiden. Jeg må indrømme, at jeg faktisk er blevet ret glad for webflow. Der er dog stadig ting, som jeg ikke har helt styr på, men synes jeg har udviklet mig meget.",
+            "Jeg havde fokus på, at lave step 3 af growkit hjemmesiden. Det er det her step, som der skal guide brugeren gennem de forskellige problemer, som der eventuelt ville kunne opstå under hele growkit forløbet. ",
+            "Så jeg besluttede mig for, at jeg ville lave nogle forskellige skitser af de forskellige sektioner og derefter overføre det til webflow. ",
+            "Jeg vil rigtig gerne lave en karrusel slider, så brugeren hurtigt kan blive vejledt og vælge , hvilket problem de har. På den måde får de et overblik med det samme. Jeg har dog ikke fået den til at virke i dag, da man skal abonnere til webflow og det er ude af min kontrol for nu. ",
+            "Men jeg begyndte i stedet at lave forskellige “kort”, som skal forklare de forskellige problemer til brugeren. Så når man scroller, så bliver de stacked på hinanden og det skulle gerne være nemt for brugeren at scrolle frem og tilbage til de problemer der opstår, da processen med et growkit er iterativ. ",
+            "Men det var stort set alt for i dag. Vi spiste også frokost sammen, virkelig hyggeligt og med dejligt vejr! Hej hej!"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 31,
+          date: "26. februar 2026",
+          image: "",
+          spontanlog: [
+            "I dag har været en lidt underlig dag. Det var egentlig meningen, at jeg skulle have arbejdet hjemme fra hele dagen, men I dag var der en vigtig workshop med studerende fra Erasmus Universitet I Rotterdam. ",
+            "Jeg startede dagen ud med, at arbejde hjemmefra. Jeg brugte tiden på, at fortsætte med at lave kort/cards, som skal forklare brugeren de forskellige problemer, som der eventuelt ville kunne opstå. ",
+            "Det brugte jeg stort set hele dagen på hjemme, indtil at jeg kl. 14 tog af sted mod Rotterzwam. Ikke at det har særlig meget at gøre med mit arbejde som praktikant, men Noa ville gerne have, at jeg var til stede som hendes praktikant til workshoppen. Hun skulle nemlig præsentere hendes arbejde som marketing, kommunikation og design ved Rotterzwam.",
+            "Florian var der også, som er ham, der normalt laver diverse workshops for folk. Her fulgte jeg også med, da jeg stadig har meget, som jeg ikke ved I forhold til svampe og dyrkningsfaserne.",
+            "Synes faktisk det var vildt spændende, at se, hvordan workshopsne fungere, men også at se, hvordan de studerende virkelig interegerede og fulgte med I hele processen. ",
+            "Det var også lidt sjovt, at jeg skulle præsentere mig selv som prakitkant. Det er jeg normalt ikke vant til, men det gjorde også at jeg fik indsigt I, hvordan det faktisk er at arbejde på en arbejdsplads og være en del af noget større."
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 32,
+          date: "27. februar 2026",
+          image: "/img/dag-32.png",
+          spontanlog: [
+            "I dag har været en produktiv dag, men egentlig ret stille og rolig. Jeg har stort set hele dagen bare siddet ved computeren, men det har været okay. Så har jeg kunne fokusere på, at få kort/cards sektionen færdig med de forskellige problemer. ",
+            "Jeg begyndte også på en “Join our community” sektion, som skal lede brugeren videre til de sociale medier efter de har fundet deres problem. Det er nemlig meningen, at man skal kunne spørge på Instagram I growkit gruppen, hvis man har problemer. På den måde leder vi brugeren videre og mere ind I fællesskabet, som gør brugeren til en trofast kunde.",
+            "Så jeg fandt frem til, at for at gøre SoMe sektionen mere interessant, så ville jeg gerne dele nogle af de billeder/posts, der bliver delt på instagram. Så brugeren allerede her føler at de bliver inviteret ind I universet og har lyst til at tjekke flere posts ud. ",
+            "Men det var stort set alt for I dag. Herefter tog nogle fra teamet og jeg ud for at få en øl. Synes det er rart, at jeg er faldet så godt til. Hej hej."
+          ],
+          refleksionslog: [
+            "Uge 8 har været en uge, hvor jeg tydeligt har mærket min udvikling inden for animation og brugeroplevelse.",
+            "Arbejdet med Lottie-animationer og “trim paths” har hjulpet mig til bedre at forstå, hvordan visuelle elementer kan bringes til live i Webflow. Ved at animere mycelium, der vokser fra 0 % til 100 %, har jeg arbejdet med at visualisere en biologisk proces på en enkel og intuitiv måde. Det har gjort mig mere bevidst om, hvordan animation kan understøtte fortælling og ikke blot fungere som dekoration.",
+            "Arbejdet med step 3, hvor brugeren guides gennem potentielle problemer, har styrket mit fokus på brugerforståelse. Her har jeg bevidst arbejdet med “stacked cards”, så brugeren nemt kan navigere mellem informationer i en proces, der i sig selv er iterativ. Målet har været at reducere friktion og gøre det lettere for brugeren hurtigt at finde svar på sine spørgsmål.",
+            "Deltagelsen i workshoppen med Erasmus-studerende har samtidig givet mig indsigt i virksomhedens formidling og kultur. At se, hvordan Rotterzwam engagerer studerende i dyrkningsprocessen, har styrket min forståelse for virksomhedens mission og værdier.",
+            "(Læringsmål 2) I forhold til mit læringsmål om at arbejde i en international arbejdskultur oplever jeg i stigende grad, at jeg føler mig som en integreret del af teamet. Selvom sproget ofte skifter mellem hollandsk og engelsk, har jeg lært at navigere i det og fokusere på den faglige dialog. At skulle præsentere mig selv som praktikant og forklare mit arbejde har gjort mig mere bevidst om min rolle i organisationen og om, hvordan jeg formidler mine designvalg til mennesker med forskellige baggrunde.",
+            "Samlet set har uge 8 været præget af både teknisk fordybelse og personlig udvikling. Jeg oplever, at jeg i højere grad tager ejerskab over mine opgaver og navigerer mere sikkert i min rolle hos Rotterzwam."
+          ]
+        }
+      ]
+    },
+
+          9: {
+      title: "Uge 9",
+      dateRange: "3. marts - 6. marts 2026",
+      entries: [
+        {
+          day: 33,
+          date: "3. marts 2026",
+          image: "",
+          spontanlog: [
+           "Hej log. I dag er det niende uge af min praktik. Det er helt vildt, hvor hurtigt det er gået. ",
+           "Jeg har brugt tiden i dag på, at lave step 3 færdig af supportsiden. Men den bliver nok først færdig i morgen. ",
+           "Jeg har lavet om på, hvordan problem cards/kortene skulle se ud, da jeg havde sparring med Noa og vi blev begge enige om, at det godt kunne føles som meget. Derfor har jeg redesignet det, så når man scroller, så scroller man horisontalt. Jeg ville nemlig gerne give brugeren mulighed for selv, at finde deres problem uden at de bliver overvældet af en helt masse informationer og problemer, der eventuelt ville kunne opstå. ",
+           "Udover, at lave horisontal scroll, så fik jeg også lavet knapper til SoMe sektionen færdig og så begyndte jeg på “Workshop” sektionen, som skal sende brugeren videre til den originale Rotterzwam side, hvis de kunne tænke sig at lære mere om svampe og Rotterzwam. ",
+           "Jeg fik også startet lidt på en sektion, der skal sende en videre til frequently asked questions, hvis brugeren stadig ikke har fået svar. Men det var alt for i dag, hej hej!"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 34,
+          date: "4. marts 2026",
+          image: "/img/dag-34.png",
+          spontanlog: [
+            "Hej log. I dag har været en produktiv dag, selvom at jeg synes at jeg op til flere gange har oplevet, at der har opstået problemer med illustrator. ",
+            "Jeg startede dagen ud med, at lave videre på step 3 af growkittet. Jeg skulle lave en sektion, der leder brugeren videre til frequently asked questions. Her har jeg leget lidt med noget mere abstrakt design, hvor baggrunden bliver siddende, men det content der er er sat fast med en sticky positionering, så på den måde “slider” de hen over hinanden. Desuden har jeg også leget lidt med en animation, hvor der er et spørgmålstegn, der slider ind, når brugeren er i et bestemt view på siden. Så på en måde har jeg arbejdet med noget animation i forhold til interaktion. ",
+            "Så begyndte jeg også på “direct help” sektionen, som er sidste udvej for brugeren for at få hjælp. Det er her, hvor informationerne omkring email, telefon og hvor man kan finde Rotterzwam henne. Rotterzwam vil gerne gøre, så brugeren ikke længere ringer eller skriver så meget, hvis der opstår problemer. Derfor er jeg netop blevet sat til at lave en support side, så brugeren ikke længere har brug for at skrive/ringe så meget. ",
+            "På “direct help” sektionen har jeg også leget lidt med det, der hedder “quick stack”, som er en kombination af det flexbox og grid system, som man normalt kender fra CSS. Det er dog webflow, der står for det og gør det generelt lettere for en website at være responsive. Her har jeg leget med nogle billeder, som jeg gerne ville have skulle stackes sammen, så det på en måde har et artistisk look."
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 35,
+          date: "5. marts 2026",
+          image: "/img/dag-35.png",
+          spontanlog: [
+           "Hej, i dag er det torsdag og jeg har arbejdet hjemmefra. Jeg er begyndt på step 4 af growkittet og jeg vil selv sige, at jeg faktisk er kommet virkelig godt fra start. På trods af at det her step har meget information, der skal fortælles på siden. ",
+           "Jeg startede ud med, at titlen “Growing & Harvesting” skulle have nogle interaktioner, altså animationer. Det havde jeg det faktisk meget sjovt med, at lege med. Jeg er begyndt at gerne ville have det hele lidt mere abstrakt og spændende at kigge på for brugeren. Herefter begyndte jeg at lave en illustration af svampe, der gror op fra jorden, som skal fungere som en border for sektionen “full bucket of mycelium”. ",
+           "Men det var stort set alt for i dag, hej hej!"
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 36,
+          date: "6. marts 2026",
+          image: "/img/dag-36.png",
+          spontanlog: [
+           "Hej, ",
+           "I dag har været en blandet dag med produktivitet foran computeren, men samtidig så har jeg også fået startet nogle nye growkits, der kan bruges til at tage billeder af senere.",
+           "Men det jeg primært har brugt min tid på i dag er, at få lavet nogle nye cards og illustrationer til, hvordan man giver sine growkits/mycelium et chok, så det er at de begynder på “fruiting & growing”, altså at de begynder at gro ud af tapen. Så det meste af dagen har jeg brugt på at lave illustrationer. Jeg vil faktisk også sige, at jeg virkelig er blevet meget bedre til at bruge illustrator i løbet af mit praktikforløb. ",
+           "Ved illustrationerne rendte jeg dog ind i nogle forskellige problemer, da jeg gerne vil have at de skal være detaljerede nok til at brugeren kan se, hvad det er, men samtidig så skal brugeren heller ikke bliver overvældet med detaljer. Så jeg har skulle finde det her midtpunkt af illustrationerne, men jeg vil selv sige at jeg er blevet ret så tilfreds."
+         ],
+          refleksionslog: [
+        
+          ]
+        }
+      ]
+    },
+
+            10: {
+      title: "Uge 10",
+      dateRange: "7. marts - 10. marts 2026",
+      entries: [
+        {
+          day: 37,
+          date: "10. marts 2026",
+          image: "",
+          spontanlog: [
+           "Tænk at det allerede er den allersidste uge af mit praktikforløb. Synes det er gået så hurtigt, men jeg er også stolt af mig selv over, at jeg har gjort det. ",
+           "Jeg begyndte dagen med, at være lidt forvirret over, hvad jeg rent faktisk skulle lave, da jeg havde glemt, hvor langt jeg var nået i fredags. Det er i dag, hvor jeg havde aftalt med Noa, at vi skulle underskrive min kontrakt i forhold til at forlænge min praktikperiode 10 uger mere og hen over min hovedopgave. Så det fik vi gjort og samtidig, så stillede jeg hende også nogle spørgsmål i forhold til karrieresamtalen. ",
+           "Herefter begyndte jeg at arbejde videre på Webflow, hvor jeg stadig er i gang med step 4. Her fiksede jeg også nogle af de forskellige sider/steps, da jeg senere kl. 13 skulle præsentere, hvad jeg har lavet i Webflow til resten af teamet. ",
+           "Jeg var egentlig ret nervøs, men da mødet gik i gang virkede de virkelig tilfredse. Selvfølgelig kom de også med noget konstruktiv feedback, men det bad jeg også om. Det er trods alt det, som der er det vigtigste for mig. Efter mødet var jeg godt tilfreds og jeg fik noteret deres feedback, så jeg kan finpudse det senere. Herefter gik jeg videre med Webflow prototypen og det var stort set det for i dag. Hej hej!"
+
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 38,
+          date: "11. marts 2026",
+          image: "/img/dag-38.png",
+          spontanlog: [
+           "Hej blog. I dag har været en dag, hvor jeg må indrømme at jeg ikke har været særlig produktiv. Jeg har haft fokus på, at jeg gerne vil lave flere animationer. Blandt andet en animation, hvor det skal forestille, at der er svampe (østershatte), der vokser. ",
+           "Så jeg har skulle lave flere forskellige illustrationer af de forskellige frames, som jeg gerne ville have, der skulle indgå i animationen. Men da jeg stadig er forholdsvis ny til at lave animationer, så har jeg ikke erfaring med, hvor mange frames der skal være. Så jeg fik lavet seks forskellige frames/illustrationer, hvor de til sidst er fuldt groende østershatte. ",
+           "Dog var det ikke nok til animationen, da jeg gerne vil have at animationen skulle være forholdsvis glidende/smooth, men det blev mest af alt en stop-motion animation. Hvilket jo egentlig giver god nok mening. Jeg har dog besluttet mig for, at jeg vil gøre det på en anden måde i morgen. Måske lege lidt mere med, hvordan jeg kan lave animationer inde i lottiefiles."
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 39,
+          date: "12. marts 2026",
+          image: "/img/dag-39.png",
+          spontanlog: [
+          "Hej igen. I dag arbejder jeg hjemmefra, så jeg har muligheden for rigtigt at fokusere på, hvordan jeg ville lave videre på min svampeanimation. Den skal bruges i step 4, hvor brugeren bliver guidet gennem med, hvor lang tid det kan tage for deres svampe at gro i growkittet. ",
+          "Men som jeg sagde i går, så begyndte jeg at lave animationen inde i LottieFiles i stedet. Her gik jeg i gang med at lege med alle de forskellige animationsstile og jeg vil faktisk sige, at jeg fik lært ret meget af, hvordan lottiefiles fungere. Her fandt jeg blandt ud af, hvordan jeg kunne få en effekt til at virke så det virkelig ligner, at svampene vokser. ",
+          "Men ja, jeg blev færdig med animationen i dag. Jeg har dog faktisk kun valgt at bruge den første “frame”, hvor det svampene kun er små knopper, der vokser frem. Men jeg synes det fungerer rigtig godt. I fremtiden kunne jeg eventuelt sætte mig lidt mere ind i animationen og lave en, hvor svampene bliver fuldvoksne."
+          ],
+          refleksionslog: [
+           
+          ]
+        },
+
+         {
+          day: 40,
+          date: "13. marts 2026",
+          image: "/img/dag-40.png",
+          spontanlog: [
+            "I dag har været en god og spændende dag. Det har også været en underlig dag, da jeg har fået en del mere ansvar lagt på mine skuldre. Jeg blev nemlig bedt om at tage imod kunder, hvilket jeg ikke rigtig har gjort tidligere. Der var nemlig et stort pres på farmen i dag. ",
+            "Dog fik jeg kun betjent en kunde, men det var egentlig ret sjovt at prøve. Jeg følte mig en del af teamet og fik pakket hendes ordrer. Selvom jeg var nervøs, så synes jeg faktisk at jeg gjorde det ret godt. Jeg ville dog ønske, at Rotterzwam og nogle fra teamet faktisk havde lært mig lidt mere op i kundebetjening, men det er måske det der sker, når man er del af en mindre virksomhed. Jeg fik også pakket nogle flere ordrer til folk, der kom og hentede senere på dagen. ",
+            "Ellers har jeg fortsat med step 4 af growkit supportsiden, hvor jeg har lavet endnu en animation. Her har jeg leget endnu mere med svampe og linjer, der vokser. Jeg er blevet vildt glad for at animere og synes faktisk det er virkelig fedt. Det er rart at se noget komme til “live”. ",
+            "Det var alt for i dag. Egentlig alt for min praktik? Vildt nok at sige. Jeg synes virkelig, at jeg har fået meget ud af det her praktikforløb, og jeg er så stolt over mig selv. Jeg glæder mig til stadig at være en del af Rotterzwam under mit praktikforløb og håber at jeg får skrevet en god hovedopgave. Hej hej!"
+         ],
+          refleksionslog: [
+            "Den sidste uge af mit praktikforløb har været en uge, hvor jeg både har reflekteret over det arbejde jeg har lavet, men også over min egen udvikling gennem hele praktikken. Det føles lidt mærkeligt, at tiden er gået så hurtigt, men samtidig er jeg stolt over, hvor meget jeg har lært og hvor meget ansvar jeg efterhånden har fået hos Rotterzwam.",
+            "En af de ting, der gjorde størst indtryk på mig i denne uge, var præsentationen af mit arbejde i Webflow for resten af teamet. Jeg var ret nervøs inden mødet, fordi jeg ikke vidste, hvordan de ville reagere på mit arbejde. Men det viste sig hurtigt, at teamet var positive og interesserede i det, jeg havde lavet. De kom også med konstruktiv feedback, som jeg har kunnet bruge til at forbedre løsningen yderligere. Det gjorde mig mere tryg i at præsentere mit arbejde og gav mig en følelse af, at mit arbejde faktisk har værdi for virksomheden.",
+            "Jeg har også brugt en del tid på at eksperimentere med animationer og især arbejdet videre med LottieFiles. I starten oplevede jeg nogle udfordringer, blandt andet fordi jeg ikke havde erfaring med hvor mange frames der skulle bruges for at få en animation til at virke glidende. Det gjorde, at jeg måtte ændre min tilgang og i stedet arbejde mere direkte med animationen i LottieFiles. Selvom processen tog længere tid end forventet, lærte jeg meget om hvordan animationer kan bruges til at gøre brugeroplevelsen mere levende og engagerende.",
+            "Derudover fik jeg i slutningen af ugen også mulighed for at hjælpe med kundebetjening på farmen, hvilket jeg ikke tidligere har gjort i særlig høj grad. Selvom jeg var lidt nervøs i starten, gav det mig en bedre forståelse for virksomhedens daglige drift og hvordan kunderne interagerer med produkterne. Det gav mig også en følelse af at være en mere integreret del af teamet.",
+            "Noget af det, jeg især tager med mig fra denne uge, er følelsen af at have udviklet mig både fagligt og personligt. Jeg er blevet mere komfortabel med værktøjer som Webflow og LottieFiles, men jeg har også lært at tage mere ansvar, modtage feedback og arbejde mere selvstændigt. At jeg samtidig har fået mulighed for at fortsætte hos Rotterzwam under mit hovedopgaveforløb gør mig også meget motiveret, fordi det føles som en naturlig forlængelse af det arbejde, jeg allerede har været i gang med.",
+            "Samlet set føler jeg, at praktikken har givet mig en bedre forståelse for, hvordan design, teknologi og virksomhedens daglige arbejde hænger sammen i praksis. Jeg afslutter praktikperioden med en følelse af stolthed over det arbejde jeg har lavet og med motivation for at arbejde videre med projektet i min hovedopgave."
+          ]
+        }
+      ]
+    },
+
+
+
+    
+  };
+  
+  // Get available weeks and current week data
+  const availableWeeks = Object.keys(weekData).map(Number).sort((a, b) => a - b);
+  const currentWeekData = weekData[selectedWeek];
+
+  return (
+    <section className="praktikblog-container">
+      <div className="praktikblog-header">
+        <h1>Praktikblog</h1>
+        <p>
+          Denne blog bruges som refleksions- og logbog i forbindelse med mit praktikophold.
+        </p>
+        <hr />
+        
+        {/* Week navigation */}
+        <div className="week-navigation">
+          {availableWeeks.map((weekNum) => (
+            <button
+              key={weekNum}
+              className={`week-button ${selectedWeek === weekNum ? 'active' : ''}`}
+              onClick={() => setSelectedWeek(weekNum)}
+            >
+              Uge {weekNum}
+            </button>
+          ))}
+        </div>
+        
+        {/* Current week info */}
+        <div className="week-info">
+          <h2>{currentWeekData.title}</h2>
+          <p>{currentWeekData.dateRange}</p>
+        </div>
+      </div>
+        
+        {/* Automatically render blog entries for selected week */}
+        {currentWeekData.entries.map((entry, index) => (
+          <article key={entry.day} className={`blog-entry blog-entry-${(index % 2) + 1}`}>
+            <h2>Dag {entry.day} – {entry.date}</h2>
+            
+            <table className="blog-table">
+              <thead>
+                <tr>
+                  <th scope="col">Billeder</th>
+                  <th scope="col">Spontanlog – Hvad der skete</th>
+                  <th scope="col">Refleksionslog – Hvad jeg tænker om det</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {/* Image column */}
+                  <td data-label="Billede" className="image-cell">
+                    {entry.image ? (
+                      entry.image.endsWith('.webm') || entry.image.endsWith('.mp4') ? (
+                        <video 
+                          src={entry.image} 
+                          alt={`Dag ${entry.day}`}
+                          onClick={() => setLightboxImage(entry.image)}
+                          style={{ cursor: "pointer" }}
+                          controls
+                          muted
+                          loop
+                        />
+                      ) : (
+                        <img 
+                          src={entry.image} 
+                          alt={`Dag ${entry.day}`}
+                          onClick={() => setLightboxImage(entry.image)}
+                          style={{ cursor: "pointer" }}
+                        />
+                      )
+                    ) : (
+                      <p>Intet billede</p>
+                    )}
+                  </td>
+                  
+                  {/* Spontanlog column */}
+                  <td data-label="Spontanlog – hvad der skete">
+                    {entry.spontanlog.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </td>
+                  
+                  {/* Refleksionslog column */}
+                  <td data-label="Refleksionslog – hvad jeg tænker om det">
+                    {Array.isArray(entry.refleksionslog) ? (
+                      entry.refleksionslog.map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ))
+                    ) : (
+                      <p>{entry.refleksionslog}</p>
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        ))}
+        
+        {/* Lightbox for viewing images and videos */}
+        {lightboxImage && (
+          <div className="lightbox" onClick={() => setLightboxImage(null)}>
+            <div className="lightbox-content">
+              {lightboxImage.endsWith('.webm') || lightboxImage.endsWith('.mp4') ? (
+                <video 
+                  src={lightboxImage} 
+                  alt="Enlarged view"
+                  controls
+                  autoPlay
+                  loop
+                  style={{ maxWidth: '100%', maxHeight: '90vh' }}
+                />
+              ) : (
+                <img src={lightboxImage} alt="Enlarged view" />
+              )}
+              <button className="lightbox-close" onClick={() => setLightboxImage(null)}>
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
+  );
+}

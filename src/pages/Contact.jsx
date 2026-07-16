@@ -12,7 +12,7 @@ export default function Contact() {
       <div className="contact-page-content">
         <h1>Let's talk</h1>
         <h2>tvebakmartin@gmail.com</h2>
-        <h2>+45 60 69 25 05</h2>
+        <h2>+45 60 69 25 05 | +31 6 4464 5526</h2>
 
         <img src="./img/big-me.webp" alt="Image of myself" />
 

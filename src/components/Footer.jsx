@@ -17,7 +17,7 @@ return (
         <section className="footer-contact">
             <img src="/img/tvebak-green.webp" alt="Logo Image" />
             <p>tvebakmartin@gmail.com</p>
-            <p>+45 60 69 25 05</p>
+            <p>+45 60 69 25 05 | +31 6 4464 5526</p>
 
             <section className="social-icons-a">
                 <a
